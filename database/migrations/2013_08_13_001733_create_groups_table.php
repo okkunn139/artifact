@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->constrained();
+            $table->foreignId('category_id')->nullable()->constrained();
             $table->string('image');
-            $table->string('description', 400);
-            $table->string('place', 20);
+            $table->string('description');
+            $table->string('place');
             $table->integer('age_limit');
             $table->integer('founding_year');
             $table->timestamps();

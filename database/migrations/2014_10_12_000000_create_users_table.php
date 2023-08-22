@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('role', 50)->nullable();
-            $table->foreignId('group_id')->constrained()->nullable();
+            $table->string('role')->nullable();
+            $table->foreignId('group_id')->nullable()->constrained();
             $table->rememberToken();
             $table->timestamps();
         });
