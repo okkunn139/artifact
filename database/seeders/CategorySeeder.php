@@ -9,17 +9,42 @@ use DateTime;
 
 class CategorySeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         DB::table('categories')->insert([
-                'category' => 'aaa',
-                'created_at' => new DateTime(),
-                'updated_at' => new DateTime(),
-         ]);
+            'category' => '合唱団',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        
+        DB::table('categories')->insert([
+            'category' => '交響楽団',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        
+        DB::table('categories')->insert([
+            'category' => '軽音楽部',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        
+        DB::table('categories')->insert([
+            'category' => '吹奏楽団',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        
+        DB::table('categories')->insert([
+            'category' => 'アカペラサークル',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        
+        DB::table('categories')->insert([
+            'category' => 'その他',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
     }
 }

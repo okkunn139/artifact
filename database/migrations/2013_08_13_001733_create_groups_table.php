@@ -16,11 +16,10 @@ return new class extends Migration
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id')->nullable()->constrained();
+            $table->string('name');
             $table->string('image');
             $table->string('description');
             $table->string('place');
-            $table->integer('age_limit');
-            $table->integer('founding_year');
             $table->timestamps();
         });
     }
