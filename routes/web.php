@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\GroupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +31,8 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/group_index', [PostController::class, 'group_index']);
-
-Route::get('/group_index/{group}', [PostController::class, 'group_show']);
+Route::get('/group_index', [GroupController::class, 'index'])->name('group_index');
+Route::get('/group_index/{group}', [GroupController::class, 'show']);
+Route::get('/mygroup', [GroupController::class, 'showMygroup'])->name('mygroup');
+Route::get('/mygroup/create', [GroupController::class, 'create']);
+Route::post('/mygroup', [GroupController::class, 'store']);

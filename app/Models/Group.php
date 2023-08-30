@@ -12,6 +12,14 @@ class Group extends Model
 {
     use HasFactory;
     
+    protected $fillable = [
+        'category_id', 
+        'name', 
+        'image', 
+        'description', 
+        'place', 
+    ];
+    
     public function users() {
         return $this->hasMany(User::class);
     }
