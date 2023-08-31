@@ -22,6 +22,8 @@
                 {{ $user->group->description }}
             </p>
         </div>
+        <div class="edit"><a href="/mygroup/edit">団体情報を編集する</a></div>
+        <div class="delete"><a href="/mygroup/delete">団体ページを削除する</a></div>
         <div class="posts">
             投稿一覧
             @foreach($user->group->posts()->get() as $post)

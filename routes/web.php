@@ -36,3 +36,7 @@ Route::get('/group_index/{group}', [GroupController::class, 'show']);
 Route::get('/mygroup', [GroupController::class, 'showMygroup'])->name('mygroup');
 Route::get('/mygroup/create', [GroupController::class, 'create']);
 Route::post('/mygroup', [GroupController::class, 'store']);
+Route::get('/mygroup/edit', [GroupController::class, 'edit']);
+Route::put('/mygroup', [GroupController::class, 'update']);
+Route::get('/mygroup/delete', [GroupController::class, 'delete']);
+Route::delete('/mygroup', [GroupController::class, 'destroy']);
