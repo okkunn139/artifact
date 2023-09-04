@@ -22,7 +22,11 @@ class GroupController extends Controller
     }
     
     public function create(Category $categories) {
-        return view('groups.create')->with(['categories' => $categories->get()]);
+        if (Auth::user()->group_id === NULL and Auth::user()->role === "団体") {
+            return view('groups.create')->with(['categories' => $categories->get()]);
+        } else {
+            return redirect('/mygroup');
+        }
     }
     
     public function store(Request $request, Group $group) {
@@ -31,22 +35,30 @@ class GroupController extends Controller
         $group_id = ['group_id' => $group->id];
         $user = Auth::user();
         $user->fill($group_id)->save();
-        return redirect('/mygroup/');
+        return redirect('/mygroup');
     }
     
     public function edit(Category $categories) {
-        return view('groups.edit')->with(['categories' => $categories->get(), 'group' => Auth::user()->group]);
+        if (Auth::user()->group_id !== NULL) {
+            return view('groups.edit')->with(['categories' => $categories->get(), 'group' => Auth::user()->group]);
+        } else {
+            return redirect('/mygroup');
+        }
     }
     
     public function update(Request $request) {
         $input = $request['group'];
         $user = Auth::user();
         $user->group->fill($input)->save();
-        return redirect('/mygroup/');
+        return redirect('/mygroup');
     }
     
     public function delete() {
-        return view('groups.delete')->with(['group' => Auth::user()->group]);
+        if (Auth::user()->group_id !== NULL) {
+            return view('groups.delete')->with(['group' => Auth::user()->group]);
+        } else {
+            return redirect('/mygroup');
+        }
     }
     
     public function destroy() {
@@ -55,6 +67,6 @@ class GroupController extends Controller
         Auth::user()->fill($group_id)->save();
         $group->posts()->delete();
         $group->delete();
-        return redirect('/mygroup/');
+        return redirect('/mygroup');
     }
 }
