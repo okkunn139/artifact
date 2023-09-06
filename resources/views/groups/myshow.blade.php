@@ -24,11 +24,12 @@
         </div>
         <div class="edit"><a href="/mygroup/edit">団体情報を編集する</a></div>
         <div class="delete"><a href="/mygroup/delete">団体ページを削除する</a></div>
+        <div class="post_create"><a href='/mygroup/post_create'>投稿を作成する</a></div>
         <div class="posts">
             投稿一覧
             @foreach($user->group->posts()->get() as $post)
                 <div class="post">
-                    <h1>{{ $post->title }}</h1>
+                    <a href="/mygroup/{{ $post->id }}">{{ $post->title }}</a>
                     <p>{{ $post->body }}</p>
                 </div>
             @endforeach

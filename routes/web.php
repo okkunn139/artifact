@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +41,8 @@ Route::get('/mygroup/edit', [GroupController::class, 'edit']);
 Route::put('/mygroup', [GroupController::class, 'update']);
 Route::get('/mygroup/delete', [GroupController::class, 'delete']);
 Route::delete('/mygroup', [GroupController::class, 'destroy']);
+
+Route::get('/group_index/{group}/{post}', [PostController::class, 'show']);
+Route::get('/mygroup/post_create', [PostController::class, 'create']);
+Route::get('/mygroup/{post}', [PostController::class, 'showMypost']);
+Route::post('/mygroup/post_create', [PostController::class, 'store']);

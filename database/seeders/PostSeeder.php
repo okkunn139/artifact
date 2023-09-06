@@ -29,16 +29,16 @@ class PostSeeder extends Seeder
         
         DB::table('posts')->insert([
             'group_id' => 2,
-            'title' => '団員募集', 
-            'body' => '募集してます！',
+            'title' => '夏合宿', 
+            'body' => '楽しかった',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
         
         DB::table('posts')->insert([
             'group_id' => 2,
-            'title' => '定期演奏会のお知らせ', 
-            'body' => '是非来てね！',
+            'title' => '新歓について', 
+            'body' => '練習してます！',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);

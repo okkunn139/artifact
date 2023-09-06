@@ -10,6 +10,12 @@ class Post extends Model
 {
     use HasFactory;
     
+    protected $fillable = [
+        'group_id', 
+        'title', 
+        'body', 
+    ];
+    
     public function group() {
         return $this->belongsTo(Group::class);
     }

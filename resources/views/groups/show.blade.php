@@ -15,7 +15,7 @@
         投稿一覧
         @foreach($group->posts()->get() as $post)
             <div class="post">
-                <h1>{{ $post->title }}</h1>
+                <a href="/group_index/{{ $group->id }}/{{ $post->id }}">{{ $post->title }}</a>
                 <p>{{ $post->body }}</p>
             </div>
         @endforeach
