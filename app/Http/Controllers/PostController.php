@@ -18,11 +18,7 @@ class PostController extends Controller
     }
     
     public function create() {
-        if (Auth::user()->group_id !== NULL) {
-            return view('posts.create');
-        } else {
-            return redirect('/mygroup');
-        }
+        return view('posts.create');
     }
     
     public function store(Request $request, Post $post) {

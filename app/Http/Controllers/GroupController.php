@@ -39,11 +39,7 @@ class GroupController extends Controller
     }
     
     public function edit(Category $categories) {
-        if (Auth::user()->group_id !== NULL) {
-            return view('groups.edit')->with(['categories' => $categories->get(), 'group' => Auth::user()->group]);
-        } else {
-            return redirect('/mygroup');
-        }
+        return view('groups.edit')->with(['categories' => $categories->get(), 'group' => Auth::user()->group]);
     }
     
     public function update(Request $request) {
@@ -54,11 +50,7 @@ class GroupController extends Controller
     }
     
     public function delete() {
-        if (Auth::user()->group_id !== NULL) {
-            return view('groups.delete')->with(['group' => Auth::user()->group]);
-        } else {
-            return redirect('/mygroup');
-        }
+        return view('groups.delete')->with(['group' => Auth::user()->group]);
     }
     
     public function destroy() {
