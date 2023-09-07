@@ -46,3 +46,7 @@ Route::get('/group_index/{group}/{post}', [PostController::class, 'show']);
 Route::get('/mygroup/post_create', [PostController::class, 'create'])->middleware('isGroupUser');
 Route::get('/mygroup/{post}', [PostController::class, 'showMypost'])->middleware('isGroupUser');
 Route::post('/mygroup/post_create', [PostController::class, 'store'])->middleware('isGroupUser');
+Route::get('/mygroup/{post}/post_edit', [PostController::class, 'edit'])->middleware('isGroupUser');
+Route::put('/mygroup/{post}/post_edit', [PostController::class, 'update'])->middleware('isGroupUser');
+Route::get('/mygroup/{post}/post_delete', [PostController::class, 'delete'])->middleware('isGroupUser');
+Route::delete('/mygroup/{post}/post_delete', [PostController::class, 'destroy'])->middleware('isGroupUser');

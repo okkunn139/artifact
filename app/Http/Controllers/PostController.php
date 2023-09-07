@@ -27,4 +27,23 @@ class PostController extends Controller
         $post->fill($group_id)->fill($input)->save();
         return redirect('/mygroup/' . $post->id);
     }
+    
+    public function edit(Post $post) {
+        return view('posts.edit')->with(['post' => $post]);
+    }
+    
+    public function update(Request $request, Post $post) {
+        $input = $request['post'];
+        $post->fill($input)->save();
+        return redirect('/mygroup/' . $post->id);
+    }
+    
+    public function delete(Post $post) {
+        return view('posts.delete')->with(['post' => $post]);
+    }
+    
+    public function destroy(Post $post) {
+        $post->delete();
+        return redirect('/mygroup');
+    }
 }
