@@ -31,7 +31,17 @@ class GroupController extends Controller
     
     public function store(Request $request, Group $group) {
         $input = $request['group'];
-        $group->fill($input)->save();
+        $group->fill($input);
+        $file = $request->file('image');
+        if (!empty($file)) {
+            $filename = $file->getClientOriginalName();
+            $move = $file->move('./upload/', $filename);
+        } else {
+            $filename = "";
+        }
+        $group->image = $filename;
+        $group->save();
+        
         $group_id = ['group_id' => $group->id];
         $user = Auth::user();
         $user->fill($group_id)->save();
@@ -45,7 +55,14 @@ class GroupController extends Controller
     public function update(Request $request) {
         $input = $request['group'];
         $user = Auth::user();
-        $user->group->fill($input)->save();
+        $user->group->fill($input);
+        $file = $request->file('image');
+        if (!empty($file)) {
+            $filename = $file->getClientOriginalName();
+            $move = $file->move('./upload/', $filename);
+            $user->group->image = $filename;
+        }
+        $user->group->save();
         return redirect('/mygroup');
     }
     

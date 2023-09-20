@@ -3,7 +3,7 @@
         自団体ページ編集
     </x-slot>
     
-    <form action="/mygroup" method="POST">
+    <form enctype="multipart/form-data" action="/mygroup" method="POST">
         @csrf
         @method('PUT')
         <div class="category">
@@ -20,8 +20,9 @@
             <input type="text" name="group[name]" value="{{ $group->name }}"/>
         </div>
         <div class="image">
-            ヘッダー画像アップロード
-            画像をアップロードさせる
+            <label>ヘッダー画像</label>
+            <div><img src="upload/{{ $group->image }}" width="800"></div>
+            <input type="file" name="image">
         </div>
         <div class="description">
             <h2>説明文</h2>

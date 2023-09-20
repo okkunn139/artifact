@@ -15,7 +15,7 @@
         </x-slot>
         
         <h2 class="image">
-            ここに写真を貼る
+            <div><img src="upload/{{ $user->group->image }}" width="800"></div>
         </h2>
         <div class="content">
             <p class="description">

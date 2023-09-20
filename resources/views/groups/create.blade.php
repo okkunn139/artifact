@@ -3,7 +3,7 @@
         自団体ページ作成
     </x-slot>
     
-    <form action="/mygroup" method="POST">
+    <form enctype="multipart/form-data" action="/mygroup" method="POST">
         @csrf
         <div class="category">
             <h2>種別</h2>
@@ -18,8 +18,8 @@
             <input type="text" name="group[name]" placeholder="〇〇団"/>
         </div>
         <div class="image">
-            ヘッダー画像アップロード
-            画像をアップロードさせる
+            <label>ヘッダー画像</label>
+            <input type="file" name="image">
         </div>
         <div class="description">
             <h2>説明文</h2>
